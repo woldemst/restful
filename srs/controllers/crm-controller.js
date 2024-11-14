@@ -35,3 +35,20 @@ export const getContactById = async (req, res) => {
 
     }
 }
+
+export const updateContact = async (req, res) => {
+    try {
+        // const contactToUpdate = await Contact.findById(req.params.contactId)
+
+        // contactToUpdate.firstName = req.body.firstName
+        // contactToUpdate.lastName = req.body.lastName
+        // contactToUpdate.company = req.body.company
+
+        const contactToUpdate = await Contact.findOneAndUpdate({ _id: req.params.contactId }, req.body, { new: true })
+        return res.status(200).json({ contactToUpdate })
+
+    } catch (error) {
+        return res.status(500).send(error)
+
+    }
+}
