@@ -9,6 +9,7 @@ const PORT = 3000;
 // body pareser setup 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(express.static('public'))
 
 routes(app)
 
